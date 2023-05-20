@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         .header {
+         position: relative;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         color: white;
+         }
+         .tit {
+         font-family: 'Playfair Display', serif;
+         font-size: 32px;
+         margin: 0;
+         color: #257285;
+         margin-left: 450px;
+         margin-right: 430px;
+         }
+         .logos {
+         border-radius: 50%;
+         width: 100px;
+         height: 100px;
+         object-fit: cover;
+         }
+         .home-button {
+         background-color: #FBAB18;
+         font-family: 'Playfair Display', serif;
+         font-size: 18px;
+         height: 40px;
+         width: 100px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 25px;
+         }
+         .home-button:hover {
+         background-color: #f7960f;
+         }
+         .like-icon {
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+         font-size: 50px;
+         color: #FBAB18;
+         }
+         .like-icon:hover {
+         color: #f7960f;
+         }
+         .content {
+         margin: 10px;
+         }
+         .content hr {
+         border: none;
+         border-top: 1px solid #257285;
+         margin: 20px 0;
+         }
+         .footer {
+         background-color: #257285;
+         padding: 20px;
+         color: white;
+         text-align: center;
+         font-size: 14px;
+         }
+         .footer a {
+         color: white;
+         text-decoration: none;
+         }
+         .gallery-container {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         grid-gap: 20px;
+         }
+         .image-card {
+         position: relative;
+         overflow: hidden;
+         border-radius: 5px;
+         }
+         .image-card img {
+         width: 100%;
+         height: auto;
+         cursor: pointer;
+         transition: opacity 0.3s ease;
+         }
+         .image-card img:hover {
+         opacity: 0.8;
+         }
+      </style>
+      <script>
+         function navigateToWishlist() {
+           window.location.href = "wishlist.html";
+         }
+         function navigateToIndex() {
+           window.location.href = "index.html";
+         }
+      </script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="content">
+            <img class="logos" src="logos.png" alt="LOGO">
+         </div>
+         <div class="content">
+            <h1 class="tit">Arcturus Life Space</h1>
+         </div>
+         <button class="home-button" onclick="navigateToIndex()">Home</button>
+         <button class="like-icon" onclick="navigateToWishlist()">&#9825;</button>
+      </header>
+      <hr>
+      <div class="gallery-container">
+         <div class="image-card">
+            <img src="outdoor.png" alt="Outdoor Image 1" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="outdoor1.png" alt="Outdoor Image 2" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="outdoor2.png" alt="Outdoor Image 3" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="outdoor3.png" alt="Outdoor Image 4" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="outdoor4.png" alt="Outdoor Image 5" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="outdoor5.png" alt="Outdoor Image 6" onclick="window.location.href='outdoor.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin.png" alt="Residential Image 1" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin1.png" alt="Residential Image 2" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin2.png" alt="Residential Image 3" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin3.png" alt="Residential Image 4" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin4.png" alt="Residential Image 5" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="rin5.png" alt="Residential Image 6" onclick="window.location.href='residential.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin.png" alt="Commercial Image 1" onclick="window.location.href='commercial.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin1.png" alt="Commercial Image 2" onclick="window.location.href='commercial.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin2.png" alt="Commercial Image 3" onclick="window.location.href='commercial.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin3.png" alt="Commercial Image 4" onclick="window.location.href='commercial.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin4.png" alt="Commercial Image 5" onclick="window.location.href='commercial.html'">
+         </div>
+         <div class="image-card">
+            <img src="cin5.png" alt="Commercial Image 6" onclick="window.location.href='commercial.html'">
+         </div>
+      </div>
+      <footer class="footer">
+         <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </footer>
+   </body>
+</html>

@@ -1,0 +1,168 @@
+body {
+  font-family: Arial, sans-serif;
+  }
+  header {     
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 500px;
+  }
+  #slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  }
+  #slideshow img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+  #slideshow .slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  }
+  #slideshow .active {
+  opacity: 1;
+  }
+  header .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
+  opacity: 0.8;
+  }
+  h1 {
+  font-weight: bold;
+  color: #257285;
+  }
+  .container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  box-shadow: black;
+  }
+  .logo{
+  border-radius: 90%;
+  width: 450px;       
+  }
+  .navbar {
+  text-align: center;
+  font-family: 'Playfair Display';
+  background-color: #FFF;
+  color: black;
+  padding: 10px;
+  z-index: 9999;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  }
+  .navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  }
+  .navbar li {
+  margin-right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  }
+  .navbar a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  }
+  .navbar a:hover {
+  color: #FBAB18;
+  }
+  .dropdown {
+  position: relative;
+  }
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FBAB18;
+  color: white;
+  padding: 15px;
+  z-index: 999;
+  flex-direction: column;
+  }
+  .box{
+  padding: 5px;
+  border-color: #FFF;
+  }
+  .box :hover {
+  opacity: 0.8;
+  }
+  .dropdown:hover .dropdown-content {
+  display: block;
+  color: white;
+  }
+  .dropdown:hover .dropdown-content a:hover {
+  color:white;
+  }
+  .dropdown:hover .dropdown-content a {
+  color:white;
+  }
+  .section {
+  position: relative;
+  width: 480px;
+  height: 500px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  }
+  .section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  }
+  .section .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color:white;
+  color: #FFF;
+  text-align: center;
+  z-index: 1;
+  transition: opacity 0.3s;
+  opacity: 1;
+  }
+  .section h3 {
+  font-weight: bold;
+  font-family: 'Playfair Display';
+  font-size: 25px;
+  margin: 0;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  color: white;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: black;
+  }
+  .container :hover {
+  opacity: 0.85;
+  }
+  .container :hover {
+  color:#257285;
+  }
+  

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      .header {
+      position: relative;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .tit {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin: 0;
+      color: #257285;
+    }
+
+    .logos {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .home-button {
+      background-color: #FBAB18;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      height: 40px;
+      width: 100px;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .home-button:hover {
+      background-color: #f7960f;
+    }
+
+
+
+    /* Content */
+    .content {
+      margin: 10px;
+    }
+
+    .content hr {
+      border: none;
+      border-top: 1px solid #257285;
+      margin: 20px 0;
+    }
+    /* CSS for the cart items container */
+    .cart-items-container {
+     
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
+    
+    /* CSS for each cart item */
+    .cart-item {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    /* CSS for the item image */
+    .item-image {
+      width: 100%;
+      height: 600;
+    }
+    .item-name {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-weight: bold;
+  color: white;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+    
+    /* CSS for the dustbin icon */
+    .dustbin-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      visibility: visible;
+      opacity: 0.9;
+    }
+    
+ 
+    
+    .footer {
+    background-color: #257285;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+  }
+ 
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <script>
+    function removeFromCart(index) {
+      var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartItems.splice(index, 1);
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      location.reload(); // Refresh the page after removal
+    }
+    
+    function loadCartItems() {
+      var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      var cartItemsContainer = document.getElementById('cart-items-container');
+      
+      for (var i = 0; i < cartItems.length; i++) {
+        var item = cartItems[i];
+        var cartItemDiv = document.createElement('div');
+        cartItemDiv.className = 'cart-item';
+        
+        var imageImg = document.createElement('img');
+        imageImg.className = 'item-image';
+        imageImg.src = item.imageSrc;
+        cartItemDiv.appendChild(imageImg);
+        
+        var dustbinIcon = document.createElement('i');
+        dustbinIcon.className = 'dustbin-icon fas fa-trash-alt';
+        dustbinIcon.setAttribute('onclick', 'removeFromCart(' + i + ')');
+        cartItemDiv.appendChild(dustbinIcon);
+        
+        var nameSpan = document.createElement('span');
+        nameSpan.className = 'item-name';
+        nameSpan.innerHTML = item.name;
+        cartItemDiv.appendChild(nameSpan);
+        
+        cartItemsContainer.appendChild(cartItemDiv);
+      }
+
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', loadCartItems);
+
+    function navigateToIndex() {
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="content">
+      <img class="logos" src="logos.png" alt="LOGO">
+    </div>
+    <div class="content">
+      <h1 class="tit">Arcturus Life Space</h1>
+    </div>
+    <button class="home-button" onclick="navigateToIndex()">Home</button>
+  </header>
+  <hr>
+
+  <div id="cart-items-container" class="cart-items-container">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+ <footer class="footer">
+    <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+</body>
+</html>

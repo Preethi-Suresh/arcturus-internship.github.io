@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="index.css">
+      <script>
+         document.addEventListener("DOMContentLoaded", function() {
+           const slides = document.querySelectorAll("#slideshow .slide");
+           let currentSlide = 0;
+         
+           function showSlide(index) {
+             slides[currentSlide].classList.remove("active");
+             slides[index].classList.add("active");
+             currentSlide = index;
+           }
+         
+           function nextSlide() {
+             const nextIndex = (currentSlide + 1) % slides.length;
+             showSlide(nextIndex);
+           }
+         
+           setInterval(nextSlide, 3000);
+         });
+      </script>
+   </head>
+   <body>
+      <header>
+         <div id="slideshow">
+            <img class="slide active" src="slide1.png" alt="Slideshow Image 1">
+            <img class="slide" src="slide2.png" alt="Slideshow Image 2">
+            <img class="slide" src="slide3.png" alt="Slideshow Image 3">
+         </div>
+         <div class="content">
+            <img class="logo" src="logo.png" alt="LOGO">
+         </div>
+      </header>
+      <hr>
+      <div class="navbar">
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+               <a href="#">We Do</a>
+               <div class="dropdown-content">
+                  <div class="box">
+                     <a href="commercial.html">Commercial</a>
+                  </div>
+                  <div class="box">
+                     <a href="residential.html">Residential</a>
+                  </div>
+                  <div class="box">
+                     <a href="outdoor.html">Outdoor</a>
+                  </div>
+               </div>
+            </li>
+            <li><a href="gallery.html">Showcase</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+         </ul>
+      </div>
+      <hr>
+      <div class="container">
+         <div class="section" onclick="window.location.href = 'commercial.html';">
+            <img src="commercial.png" alt="Commercial Interior Design">
+            <h3>Commercial Interior Design</h3>
+         </div>
+         <div class="section" onclick="window.location.href = 'residential.html';">
+            <img src="residential.png" alt="Residential Interior Design">
+            <h3>Residential Interior Design</h3>
+         </div>
+         <div class="section" onclick="window.location.href = 'outdoor.html';">
+            <img src="outdoor.png" alt="Outdoor">
+            <h3>Outdoor Design</h3>
+         </div>
+      </div>
+   </body>
+</html>

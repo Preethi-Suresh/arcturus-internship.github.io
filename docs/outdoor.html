@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         .header {
+         position: relative;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         color: white;
+         }
+         .tit {
+         font-family: 'Playfair Display', serif;
+         font-size: 32px;
+         margin: 0;
+         color: #257285;
+         margin-left: 300px;
+         margin-right: 270px;
+         }
+         .logos {
+         border-radius: 50%;
+         width: 100px;
+         height: 100px;
+         object-fit: cover;
+         }
+         .home-button {
+         background-color: #FBAB18;
+         font-family: 'Playfair Display', serif;
+         font-size: 18px;
+         height: 40px;
+         width: 100px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 25px;
+         }
+         .home-button:hover {
+         background-color: #f7960f;
+         }
+         .like-icon {
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+         font-size: 50px;
+         color: #FBAB18;
+         }
+         .like-icon:hover {
+         color: #f7960f;
+         }
+         .content {
+         margin: 10px;
+         }
+         .content hr {
+         border: none;
+         border-top: 1px solid #257285;
+         margin: 20px 0;
+         }
+         .image-grid {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 20px;
+         }
+         .image-card {
+         position: relative;
+         overflow: hidden;
+         border-radius: 5px;
+         }
+         .image-card img {
+         width: 100%;
+         height: auto;
+         }
+         .like-button {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         background-color: transparent;
+         color: white;
+         opacity: 0.88;
+         border: none;
+         cursor: pointer;
+         font-size: 35px;
+         }
+         .like-button.clicked {
+         color: rgb(189, 26, 81); 
+         opacity: 0.99;
+         }
+         .like-button:hover {
+         color: #FBAB18;
+         }
+         .footer {
+         background-color: #257285;
+         padding: 20px;
+         color: white;
+         text-align: center;
+         font-size: 14px;
+         }
+         .footer a {
+         color: white;
+         text-decoration: none;
+         }
+      </style>
+      <script>
+         function addToCart(imageSrc, name, button) {
+         var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+         var newItem = { imageSrc: imageSrc, name: name };
+         var itemExists = cartItems.some(function(item) {
+         return item.imageSrc === newItem.imageSrc && item.name === newItem.name;
+         });
+         if (!itemExists) {
+         cartItems.push(newItem);
+         localStorage.setItem('cartItems', JSON.stringify(cartItems));
+         }
+         
+         button.classList.toggle("clicked");
+         }
+         
+         
+         function navigateToWishlist() {
+           window.location.href = "wishlist.html";
+         }
+         function navigateToIndex() {
+           window.location.href = "index.html";
+         }
+      </script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="content">
+            <img class="logos" src="logos.png" alt="LOGO">
+         </div>
+         <div class="content">
+            <h1 class="tit">Arcturus Life Space - Outdoor Designs</h1>
+         </div>
+         <button class="home-button" onclick="navigateToIndex()">Home</button>
+         <button class="like-icon" onclick="navigateToWishlist()">&#9825;</button>
+      </header>
+      <hr>
+      <div class="content">
+         <div class="image-grid">
+            <div class="image-card">
+               <img src="outdoor.png" alt="Image 1">
+               <button class="like-button" onclick="addToCart('outdoor.png', '$2000', this)">&#10084;</button>
+            </div>
+            <div class="image-card">
+               <img src="outdoor1.png" alt="Image 2">
+               <button class="like-button" onclick="addToCart('outdoor1.png', '$1000', this)">&#10084;</button>
+            </div>
+            <div class="image-card">
+               <img src="outdoor2.png" alt="Image 3">
+               <button class="like-button" onclick="addToCart('outdoor2.png', '$1500', this)">&#10084;</button>
+            </div>
+            <div class="image-card">
+               <img src="outdoor3.png" alt="Image 4">
+               <button class="like-button" onclick="addToCart('outdoor3.png', '$1500', this)">&#10084;</button>
+            </div>
+            <div class="image-card">
+               <img src="outdoor4.png" alt="Image 5">
+               <button class="like-button" onclick="addToCart('outdoor4.png', '$1600', this)">&#10084;</button>
+            </div>
+            <div class="image-card">
+               <img src="outdoor5.png" alt="Image 6">
+               <button class="like-button" onclick="addToCart('outdoor5.png', '$2000', this)">&#10084;</button>
+            </div>
+         </div>
+      </div>
+      <footer class="footer">
+         <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </footer>
+   </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         .container {
+         display: flex;
+         justify-content: space-between;
+         }
+         .about-section {
+         flex: 1;
+         padding: 50px;
+         padding-right: 100px;
+         height: 420px;
+         background-color: #257285;
+         color: white;
+         text-align: justify;
+         }
+         h2{
+         color: #257285;
+         }
+         .contact-container {
+         flex: 1;
+         padding: 20px;
+         background-color: #f5f5f5;
+         border-radius: 5px;
+         border-color: #257285;
+         }
+         .form-input {
+         width: 100%;
+         padding: 10px;
+         margin-bottom: 10px;
+         border: 1px solid #ccc;
+         border-radius: 3px;
+         }
+         .form-submit-button {
+         background-color: #257285;
+         color: white;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         }
+         .form-submit-button:hover {
+         background-color: #1c5a6f;
+         }
+         .header {
+         position: relative;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         color: white;
+         }
+         .tit {
+         font-family: 'Playfair Display', serif;
+         font-size: 32px;
+         margin: 0;
+         color: #257285;
+         margin-left: 450px;
+         margin-right: 430px;
+         }
+         .logos {
+         border-radius: 50%;
+         width: 100px;
+         height: 100px;
+         object-fit: cover;
+         }
+         .home-button {
+         background-color: #FBAB18;
+         font-family: 'Playfair Display', serif;
+         font-size: 18px;
+         height: 40px;
+         width: 100px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-right: 25px;
+         }
+         .home-button:hover {
+         background-color: #f7960f;
+         }
+         .like-icon {
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+         font-size: 50px;
+         color: #FBAB18;
+         }
+         .like-icon:hover {
+         color: #f7960f;
+         }
+         .content {
+         margin: 10px;
+         }
+         .content hr {
+         border: none;
+         border-top: 1px solid #257285;
+         margin: 20px 0;
+         }
+         .footer {
+         background-color: #257285;
+         padding: 20px;
+         color: white;
+         text-align: center;
+         font-size: 14px;
+         }
+         .footer a {
+         color: white;
+         text-decoration: none;
+         }
+      </style>
+      <script>
+         function navigateToWishlist() {
+           window.location.href = "wishlist.html";
+         }
+         function navigateToIndex() {
+           window.location.href = "index.html";
+         }
+         function submitForm() {
+           alert("Response submitted. We will reach you soon.");
+         }
+      </script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="content">
+            <img class="logos" src="logos.png" alt="LOGO">
+         </div>
+         <div class="content">
+            <h1 class="tit">Arcturus Life Space</h1>
+         </div>
+         <button class="home-button" onclick="navigateToIndex()">Home</button>
+         <button class="like-icon" onclick="navigateToWishlist()">&#9825;</button>
+      </header>
+      <hr>
+      <div class="container">
+         <div class="about-section">
+            <h1>About Us</h1>
+            <p>Welcome to Arcturus Life Space, where we turn spaces into stunning environments that inspire and delight. With a passion for creativity and attention to detail, we specialize in transforming residential and commercial spaces into personalized and functional works of art.</p>
+            <p>Our team of experienced designers and decorators work closely with clients to understand their unique vision and bring it to life. From concept development to final execution, we meticulously plan and execute each project, ensuring that every element complements the overall design aesthetic and meets the client's requirements.</p>
+            <p>Whether you're looking to revamp your living room, create an inviting office space, or design an entire home, we offer a comprehensive range of interior design services tailored to your needs. Your satisfaction is our top priority.</p>
+         </div>
+         <div class="contact-container">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+               <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+               <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+               <textarea name="message" placeholder="Your Message" class="form-input" rows="5" required></textarea>
+               <button type="submit" class="form-submit-button" onclick="submitForm()">Submit</button>
+            </form>
+         </div>
+      </div>
+      <hr>
+      <footer class="footer">
+         <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </footer>
+   </body>
+</html>
