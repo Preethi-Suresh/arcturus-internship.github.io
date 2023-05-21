@@ -1,184 +1,290 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <style>
-      .header {
-      position: relative;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-    }
-
-    .tit {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      margin: 0;
-      color: #257285;
-    }
-
-    .logos {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-    }
-
-    .home-button {
-      background-color: #FBAB18;
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      height: 40px;
-      width: 100px;
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .home-button:hover {
-      background-color: #f7960f;
-    }
-
-
-
-    /* Content */
-    .content {
-      margin: 10px;
-    }
-
-    .content hr {
-      border: none;
-      border-top: 1px solid #257285;
-      margin: 20px 0;
-    }
-    /* CSS for the cart items container */
-    .cart-items-container {
-     
-      margin: 20px auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 10px;
-    }
-    
-    /* CSS for each cart item */
-    .cart-item {
-      position: relative;
-      cursor: pointer;
-    }
-    
-    /* CSS for the item image */
-    .item-image {
-      width: 100%;
-      height: 600;
-    }
-    .item-name {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-weight: bold;
-  color: white;
-  text-align: right;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-    
-    /* CSS for the dustbin icon */
-    .dustbin-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      color: white;
-      cursor: pointer;
-      visibility: visible;
-      opacity: 0.9;
-    }
-    
- 
-    
-    .footer {
-    background-color: #257285;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-  }
-  
-  .footer a {
-    color: white;
-    text-decoration: none;
-  }
- 
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-  <script>
-    function removeFromCart(index) {
-      var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-      cartItems.splice(index, 1);
-      localStorage.setItem('cartItems', JSON.stringify(cartItems));
-      location.reload(); // Refresh the page after removal
-    }
-    
-    function loadCartItems() {
-      var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-      var cartItemsContainer = document.getElementById('cart-items-container');
-      
-      for (var i = 0; i < cartItems.length; i++) {
-        var item = cartItems[i];
-        var cartItemDiv = document.createElement('div');
-        cartItemDiv.className = 'cart-item';
-        
-        var imageImg = document.createElement('img');
-        imageImg.className = 'item-image';
-        imageImg.src = item.imageSrc;
-        cartItemDiv.appendChild(imageImg);
-        
-        var dustbinIcon = document.createElement('i');
-        dustbinIcon.className = 'dustbin-icon fas fa-trash-alt';
-        dustbinIcon.setAttribute('onclick', 'removeFromCart(' + i + ')');
-        cartItemDiv.appendChild(dustbinIcon);
-        
-        var nameSpan = document.createElement('span');
-        nameSpan.className = 'item-name';
-        nameSpan.innerHTML = item.name;
-        cartItemDiv.appendChild(nameSpan);
-        
-        cartItemsContainer.appendChild(cartItemDiv);
-      }
-
-    }
-    
-    
-    document.addEventListener('DOMContentLoaded', loadCartItems);
-
-    function navigateToIndex() {
-      window.location.href = "index.html";
-    }
-  </script>
-</head>
-<body>
-  <header class="header">
-    <div class="content">
-      <img class="logos" src="logos.png" alt="LOGO">
-    </div>
-    <div class="content">
-      <h1 class="tit">Arcturus Life Space</h1>
-    </div>
-    <button class="home-button" onclick="navigateToIndex()">Home</button>
-  </header>
-  <hr>
-
-  <div id="cart-items-container" class="cart-items-container">
-    <!-- Cart items will be dynamically added here -->
-  </div>
- <footer class="footer">
-    <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-  </footer>
-</body>
+   <head>
+      <style>
+         .header {
+         position: relative;
+         padding: 20px;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         color: white;
+         }
+         .tit {
+         font-family: 'Playfair Display', serif;
+         font-size: 32px;
+         margin: 0;
+         color: #257285;
+         }
+         .logos {
+         border-radius: 50%;
+         width: 100px;
+         height: 100px;
+         object-fit: cover;
+         }
+         .home-button {
+         background-color: #FBAB18;
+         font-family: 'Playfair Display', serif;
+         font-size: 18px;
+         height: 40px;
+         width: 100px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         }
+         .home-button:hover {
+         background-color: #f7960f;
+         }
+         .content {
+         margin: 10px;
+         }
+         .content hr {
+         border: none;
+         border-top: 1px solid #257285;
+         margin: 20px 0;
+         }
+         .cart-items-container {
+         margin: 20px auto;
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         grid-gap: 10px;
+         }
+         .cart-item {
+         position: relative;
+         cursor: pointer;
+         }
+         .item-image {
+         width: 100%;
+         height: 600;
+         }
+         .item-name {
+         position: absolute;
+         bottom: 10px;
+         right: 10px;
+         font-weight: bold;
+         color: white;
+         text-align: right;
+         background-color: rgba(0, 0, 0, 0.7);
+         padding: 5px 10px;
+         border-radius: 5px;
+         font-size: 14px;
+         }
+         .dustbin-icon {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         font-size: 20px;
+         color: white;
+         cursor: pointer;
+         visibility: visible;
+         opacity: 0.9;
+         }
+         .find-design-input {
+         padding: 20px;
+         background-color:#257285;
+         margin-bottom: 10px;
+         }
+         .find-design-input label {
+         color: azure;
+         font-weight: bold;
+         margin-bottom: 10px;
+         padding-left: 50px;
+         padding-right: 10px;
+         }
+         .find-design-input input{
+         width: 12%;
+         padding: 10px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+         box-sizing: border-box;
+         }
+         .find-design-go-button {
+         background-color: #FBAB18;
+         font-family: 'Playfair Display', serif;
+         font-size: 16px;
+         height: 40px;
+         width: 80px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         margin-left: 60px;
+         }
+         .find-design-go-button:hover {
+         background-color: #f7960f;
+         }
+         /* Notification Box */
+         .notification-container {
+         position: fixed;
+         top: 70%;
+         left: 50%;
+         height: 200px;
+         width: 200px;
+         transform: translate(-50%, -50%);
+         background-color: #f2f2f2;
+         padding: 20px;
+         display: none;
+         z-index: 9999;
+         border-radius: 10px;
+         opacity: 0.8;
+         }
+         .notification-close {
+         font-family: 'Courier New', Courier, monospace;
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         color: black;
+         cursor: pointer;
+         font-weight: bolder;
+         }
+         .notification-content{
+         padding-top: 30%;
+         display: flex; 
+         flex-direction: column;
+         justify-content: center; 
+         align-items: center;
+         }
+         .notification-container p{
+         font-family: 'Playfair Display', serif;
+         font-weight: bolder;
+         }
+         .notification-container button{
+         background-color: #257285;
+         font-family: 'Playfair Display', serif;
+         font-size: 16px;
+         height: 40px;
+         width: 80px;
+         color: #000;
+         border: none;
+         border-radius: 5px;
+         font-weight: bold;
+         cursor: pointer;
+         }
+         .notification-container button:hover{
+         background-color: #1c5d78;
+         }
+         .footer {
+         background-color: #257285;
+         padding: 20px;
+         color: white;
+         text-align: center;
+         font-size: 14px;
+         }
+         .footer a {
+         color: white;
+         text-decoration: none;
+         }
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <script>
+         function removeFromCart(index) {
+           var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+           cartItems.splice(index, 1);
+           localStorage.setItem('cartItems', JSON.stringify(cartItems));
+           location.reload(); // Refresh the page after removal
+         }
+         
+         function loadCartItems() {
+           var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+           var cartItemsContainer = document.getElementById('cart-items-container');
+           
+           for (var i = 0; i < cartItems.length; i++) {
+             var item = cartItems[i];
+             var cartItemDiv = document.createElement('div');
+             cartItemDiv.className = 'cart-item';
+             
+             var imageImg = document.createElement('img');
+             imageImg.className = 'item-image';
+             imageImg.src = item.imageSrc;
+             cartItemDiv.appendChild(imageImg);
+             
+             var dustbinIcon = document.createElement('i');
+             dustbinIcon.className = 'dustbin-icon fas fa-trash-alt';
+             dustbinIcon.setAttribute('onclick', 'removeFromCart(' + i + ')');
+             cartItemDiv.appendChild(dustbinIcon);
+             
+             var nameSpan = document.createElement('span');
+             nameSpan.className = 'item-name';
+             nameSpan.innerHTML = item.name;
+             cartItemDiv.appendChild(nameSpan);
+             
+             cartItemsContainer.appendChild(cartItemDiv);
+           }
+         
+         }
+         
+             document.addEventListener('DOMContentLoaded', loadCartItems);
+         
+         function navigateToIndex() {
+           window.location.href = "index.html";
+         }
+         
+         function navigateToIndex() {
+           window.location.href = "index.html";
+         }
+         
+         function showNotification() {
+           var designIdInput = document.getElementById("design-id-input");
+           var areaInput = document.getElementById("area-input");
+           var notificationBox = document.getElementById("notification-box");
+           var notificationText = document.getElementById("notification-text");
+         
+           var designId = designIdInput.value;
+           var area = parseInt(areaInput.value);
+           var budget = 50000;
+             if (area < 100) {
+               notificationText.textContent = "Approx. Price: Not Applicable";
+             } else {
+               var calculatedBudget = budget * (area / 100);
+               notificationText.textContent = "Approx. Price: " + calculatedBudget;
+             }     
+         
+           notificationBox.style.display = "block";
+         }
+         
+         function closeNotification() {
+           var notificationBox = document.getElementById("notification-box");
+           notificationBox.style.display = "none";
+         }
+         
+         function navigateToContact() {
+           window.location.href = "contact.html";
+         }
+         
+      </script>
+   </head>
+   <body>
+      <header class="header">
+         <div class="content">
+            <img class="logos" src="logos.png" alt="LOGO">
+         </div>
+         <div class="content">
+            <h1 class="tit">Arcturus Life Space</h1>
+         </div>
+         <button class="home-button" onclick="navigateToIndex()">Home</button>
+      </header>
+      <hr>
+      <div class="find-design-input">
+         <label for="design-id-input">Design ID:</label>
+         <input type="text" id="design-id-input" placeholder="Enter DID" required>
+         <label for="area-input">Area :</label>
+         <input type="number" id="area-input" placeholder="Enter sqft" required>
+         <button class="find-design-go-button" onclick="showNotification()">Budget</button>
+      </div>
+      <div id="notification-box" class="notification-container">
+         <span class="notification-close" onclick="closeNotification()">x</span>
+         <div class="notification-content">
+            <p id="notification-text"></p>
+            <button onclick="navigateToContact()">Contact</button>    
+         </div>
+      </div>
+      <div id="cart-items-container" class="cart-items-container">
+      </div>
+      <footer class="footer">
+         <p>&copy; 2023 Arcturus Life Space. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </footer>
+   </body>
 </html>
